@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FranGiunco</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        /* Estilização opcional para o texto digitado */
+        .typing {
+            font-size: 24px;
+            font-weight: bold;
+            border-right: 3px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Bem-vindo ao FranGiunco
+    </header>
+    <main>
+        <h1 class="typing"></h1>
+        <p id="subtext"></p>
+    </main>
+    <footer>
+        © 2025 FranGiunco - Todos os direitos reservados.
+    </footer>
+
+    <script>
+        function typeEffect(element, text, speed, callback) {
+            let i = 0;
+            function typing() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                } else if (callback) {
+                    setTimeout(callback, 500);
+                }
+            }
+            typing();
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const title = document.querySelector(".typing");
+            const subtitle = document.getElementById("subtext");
+
+            typeEffect(title, "Bem-vindo ao meu site no GitHub Pages!", 70, function() {
+                typeEffect(subtitle, "Este é um site simples hospedado gratuitamente.", 50);
+            });
+        });
+    </script>
+</body>
+</html>
